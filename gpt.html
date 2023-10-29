@@ -9,7 +9,7 @@
 
         // Array to store work widths
         const workWidths = [];
-
+        // Default Value
         // Function to create input fields based on the number of works
         function createInputFields() {
             const numberOfWorks = document.getElementById('numberOfWorks').value;
@@ -52,18 +52,32 @@
         // Function to calculate the total sum of workWidths and store the result in the totalWorkWidth variable
         function calculateTotalWorkWidth() {
             totalWorkWidth = workWidths.reduce((acc, width) => acc + (width || 0), 0);
-            return 
+            return totalWorkWidth
         }
+        // Function that calculates the even spacing between each piece on a given wall
+        function getEvenGapSpacing(wall,numberOfItems,itemCombinedWidth){
+            console.log(wall)
+            console.log("This is the total number of items " + numberOfItems)
+            console.log( typeof numberOfItems)
+            console.log(itemCombinedWidth)
+            typeof itemCombinedWidth
+            let unoccupiedSpace = wall-totalWorkWidth;
+            console.log(unoccupiedSpace)
+            console.log(numberOfItems.length)
+            console.log(unoccupiedSpace/Number(numberOfItems.length))
+        }
+        //TODO work out spacing function
+       
         // Function to handle form submission
         function submitForm() {
             // Get the wall width submitted by the user
             wallWidth = parseFloat(document.getElementById('wallWidth').value);
 
             // ... (same as previous example)
-
             // Now you can access wallWidth and totalWorkWidth variables
             console.log('Wall Width:', wallWidth);
             console.log('Total Work Width:', totalWorkWidth);
+            getEvenGapSpacing(wallWidth, workWidths, totalWorkWidth)
         }
     </script>
 </head>
