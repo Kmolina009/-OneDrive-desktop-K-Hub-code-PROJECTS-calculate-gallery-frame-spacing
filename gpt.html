@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wall Information Form</title>
+    <script>
+        // Variables to store data
+        let wallWidth = 0;
+        let totalWorkWidth = 0;
+
+        // Array to store work widths
+        const workWidths = [];
+
+        // Function to create input fields based on the number of works
+        function createInputFields() {
+            const numberOfWorks = document.getElementById('numberOfWorks').value;
+            const inputFieldsContainer = document.getElementById('inputFieldsContainer');
+            inputFieldsContainer.innerHTML = ''; // Clear previous input fields
+
+            // Clear the workWidths array when generating new fields
+            workWidths.length = 0;
+
+            for (let i = 1; i <= numberOfWorks; i++) {
+                const workTitleLabel = document.createElement('label');
+                workTitleLabel.innerHTML = `Title for Work ${i}:`;
+
+                const workTitleInput = document.createElement('input');
+                workTitleInput.type = 'text';
+                workTitleInput.name = `workTitle${i}`;
+
+                const workWidthLabel = document.createElement('label');
+                workWidthLabel.innerHTML = `Width for Work ${i} (inches):`;
+
+                const workWidthInput = document.createElement('input');
+                workWidthInput.type = 'number';
+                workWidthInput.name = `workWidth${i}`;
+                workWidthInput.min = 0; // Minimum width is 0 inches
+
+                // Add an event listener to capture workWidth values
+                workWidthInput.addEventListener('input', function() {
+                    workWidths[i - 1] = parseFloat(this.value);
+                });
+
+                inputFieldsContainer.appendChild(workTitleLabel);
+                inputFieldsContainer.appendChild(workTitleInput);
+                inputFieldsContainer.appendChild(document.createElement('br'));
+                inputFieldsContainer.appendChild(workWidthLabel);
+                inputFieldsContainer.appendChild(workWidthInput);
+                inputFieldsContainer.appendChild(document.createElement('br'));
+            }
+        }
+
+        // Function to calculate the total sum of workWidths and store the result in the totalWorkWidth variable
+        function calculateTotalWorkWidth() {
+            totalWorkWidth = workWidths.reduce((acc, width) => acc + (width || 0), 0);
+            return 
+        }
+        // Function to handle form submission
+        function submitForm() {
+            // Get the wall width submitted by the user
+            wallWidth = parseFloat(document.getElementById('wallWidth').value);
+
+            // ... (same as previous example)
+
+            // Now you can access wallWidth and totalWorkWidth variables
+            console.log('Wall Width:', wallWidth);
+            console.log('Total Work Width:', totalWorkWidth);
+        }
+    </script>
+</head>
+<body>
+    <h1>Wall Information Form</h1>
+    <form>
+        <label for="wallWidth">What is the width of the wall (inches)?</label>
+        <input type="number" id="wallWidth" name="wallWidth" required>
+        <br>
+
+        <label for="numberOfWorks">What is the number of works that will go on this wall?</label>
+        <input type="number" id="numberOfWorks" name="numberOfWorks" required>
+        <button type="button" onclick="createInputFields()">Create Input Fields</button>
+        <br>
+
+        <div id="inputFieldsContainer"></div>
+        <br>
+
+        <button type="button" onclick="calculateTotalWorkWidth()">Calculate Total Work Width</button>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</body>
+</html>
