@@ -6,4 +6,4 @@ Calculate the spaceing between a number of frames on a gallery wall.
     - Subtract the gallery wall by the total widths of a set of frames to get the "Wall to Frame Width Difference" 
     - Divide the "Wall to Frame Width Difference" by (number of frames + 1) 
 
-    -What are the attriutes the frames have other than their (simplified)dimensions
+    -What are the attributes the frames have other than their (simplified)dimensions
