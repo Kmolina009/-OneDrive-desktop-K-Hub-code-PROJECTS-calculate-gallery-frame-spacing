@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Wall Information Form</title>
+    <title>Spacing between frames</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <h1>Wall Information Form</h1>
+    <h1>Spacing between frames</h1>
     <form>
-        <label for="wallWidth">What is the width of the wall (inches)?</label>
+        <label for="wallWidth">What is the width of the wall (inches)?</label><br>
         <input type="number" id="wallWidth" name="wallWidth" required>
         <br>
 
         <label for="numberOfWorks">What is the number of works that will go on this wall?</label>
+      <br>
         <input type="number" id="numberOfWorks" name="numberOfWorks" required>
+      <br>
         <button type="button" onclick="createInputFields()">Create Input Fields</button>
         <br>
 
@@ -24,7 +27,7 @@
     </form>
   <section>
     <p>The space between each piece is.</p>
-    <p id="space-between-result">3</p>
+    <p id="space-between-result"></p>
   </section>
   <script>
     //Elements from the DOM
